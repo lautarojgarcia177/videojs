@@ -1,0 +1,64 @@
+
+
+
+
+<!-- 
+    <label for="video-url-input">Video url (must be mp4) ex: //vjs.zencdn.net/v/oceans.mp4 (must not have https:)</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="video-url-input" [(ngModel)]="videoUrl" aria-label="Video url" aria-describedby="button-watch">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="watch()" type="button" id="button-watch">Watch</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <label for="seek-time">Seek time (in seconds)</label>
+        <input style="width: 400px" id="seek-time" type="text" [(ngModel)]="seekTime">
+        <button type="button" (click)="seek()">Seek</button>
+    </div> -->
+<div class="container mt-2">
+    <div class="row">
+        <form>
+            <div class="form-group">
+              <label for="video-url-input">Video Url</label>  
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Video Url" id="video-url-input" aria-label="Video url" [(ngModel)]="videoUrl" name="_video-url" aria-describedby="watch-help">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)="watch()" type="button" id="button-watch">Watch</button>
+                </div>
+              </div>
+              <small id="watch-help" class="form-text text-muted">
+                  <p>Video Url must be mp4 (only for this particular implementation) & must not have 'https:'.</p>
+                  <span>Examples:</span>
+                    <ul>
+                        <li>//vjs.zencdn.net/v/oceans.mp4</li>
+                        <li>//archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4</li>
+                    </ul>
+              </small>
+            </div>
+        </form>        
+    </div>
+</div>
+  
+  <div class="container mt-4">
+    <div class="row mx-auto">
+      <div class="col">
+        <video #target class="video-js"
+         controls autoplay playsinline
+          preload="none">
+        </video>
+      </div>
+    </div>  
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <p class="mt-2"><small>Current playing time every 5 seconds: {{currentPlayingTime}}s</small></p>
+    </div>
+    <div class="row">
+      <small><p>Volume: {{volume}}</p></small>
+    </div>
+  </div>
+  <div *ngIf="ended" class="alert alert-primary" role="alert">
+    Video ended
+  </div>
