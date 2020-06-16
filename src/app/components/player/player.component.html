@@ -1,42 +1,45 @@
-
-
-
-
-<!-- 
-    <label for="video-url-input">Video url (must be mp4) ex: //vjs.zencdn.net/v/oceans.mp4 (must not have https:)</label>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" id="video-url-input" [(ngModel)]="videoUrl" aria-label="Video url" aria-describedby="button-watch">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" (click)="watch()" type="button" id="button-watch">Watch</button>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-        <label for="seek-time">Seek time (in seconds)</label>
-        <input style="width: 400px" id="seek-time" type="text" [(ngModel)]="seekTime">
-        <button type="button" (click)="seek()">Seek</button>
-    </div> -->
 <div class="container mt-2">
     <div class="row">
-        <form>
+          <div class="col-lg-8">
+            <form>
             <div class="form-group">
               <label for="video-url-input">Video Url</label>  
               <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Video Url" id="video-url-input" aria-label="Video url" [(ngModel)]="videoUrl" name="_video-url" aria-describedby="watch-help">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" (click)="watch()" type="button" id="button-watch">Watch</button>
                 </div>
               </div>
               <small id="watch-help" class="form-text text-muted">
-                  <p>Video Url must be mp4 (only for this particular implementation) & must not have 'https:'.</p>
+                  <p>Video Url.</p>
                   <span>Examples:</span>
                     <ul>
                         <li>//vjs.zencdn.net/v/oceans.mp4</li>
                         <li>//archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4</li>
+                        <li>(HLS for Streaming) https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8</li>
                     </ul>
               </small>
             </div>
-        </form>        
+          </form> 
+          </div>
+          <div class="col-lg-3">
+            <label for="dropdown-myme">Myme Type</label>
+            <div class="dropdown">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdown-myme" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{mymeType}}
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" (click)="mp4Selected()">video/mp4</a>
+                <a class="dropdown-item" (click)="mp4Selected()">video/webm</a>
+                <a class="dropdown-item" (click)="xmpegURLSelected()">application/x-mpegURL</a>
+                <a class="dropdown-item" (click)="dashxmlSelected()">application/dash+xml</a>
+              </div>
+            </div>
+            
+          </div>  
+          <div class="col-lg-1">
+            <label style="color: white;">holis</label>
+            <button class="btn btn-outline-secondary" (click)="watch()" type="button" id="button-watch">Watch</button>
+          </div>     
     </div>
 </div>
   

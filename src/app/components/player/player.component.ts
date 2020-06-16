@@ -13,7 +13,9 @@ import videojs from 'video.js';
 export class PlayerComponent implements OnInit {
 
   // videoUrl = '//vjs.zencdn.net/v/oceans.mp4';
-  videoUrl = '//archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4';
+  videoUrl = 'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4';
+
+  mymeType = 'video/mp4';
 
   seekTime = 0;
 
@@ -24,7 +26,7 @@ export class PlayerComponent implements OnInit {
   options = {
   autoplay: true,
   controls: true,
-  sources: [{ src: this.videoUrl, type: 'video/mp4' }],
+  sources: [{ src: this.videoUrl, type: this.mymeType }],
   controlBar: {
     'pictureInPictureToggle': false
   },
@@ -108,4 +110,15 @@ export class PlayerComponent implements OnInit {
     this.player.play();
   }
 
+  mp4Selected() {
+    this.mymeType = 'video/mp4';
+  }
+
+  xmpegURLSelected() {
+    this.mymeType = 'application/x-mpegURL';
+  }
+
+  dashxmlSelected() {
+    this.mymeType = 'application/dash+xml';
+  }
 }
