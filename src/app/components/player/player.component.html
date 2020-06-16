@@ -40,7 +40,7 @@
           </div>  
           <div class="col-lg-1">
             <label style="color: white;">holis</label>
-            <button class="btn btn-outline-secondary" (click)="watch()" type="button" id="button-watch">Watch</button>
+            <button class="btn btn-primary" (click)="watch()" type="button" id="button-watch">Watch</button>
           </div>     
     </div>
 </div>
@@ -52,7 +52,7 @@
          controls autoplay playsinline
           preload="none">
           <track label="English subtitles" kind="subtitles" srclang="en" src="../../../assets/elephants-dream-subtitles-en.vtt" default="">
-          <track label="German subtitles" kind="subtitles" srclang="de" src="../../../assets/elephants-dream-subtitles-de.vtt" default="">
+          <track label="German subtitles" kind="subtitles" srclang="de" src="../../../assets/elephants-dream-subtitles-de.vtt" default="">    
         </video>
       </div>
     </div>  
@@ -69,5 +69,3 @@
   <div *ngIf="ended" class="alert alert-primary" role="alert">
     Video ended
   </div>
-
-  <!-- <img src="../../../assets/descarga.png"> -->

@@ -16,7 +16,7 @@ export class PlayerComponent implements OnInit {
   // videoUrl = 'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4';
   // videoUrl = 'https://www.iandevlin.com/html5test/webvtt/v/upc-tobymanley.mp4';
   videoUrl = 'http://ptgmedia.pearsoncmg.com/imprint_downloads/peachpit/peachpit/downloads/0321793935/media//elephants-dream-medium.mp4';
-
+  
   mymeType = 'video/mp4';
 
   seekTime = 0;
@@ -54,6 +54,7 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit(): void {
         // instantiate Video.js
+
         this.player = videojs(this.target.nativeElement, this.options, () => {
           this.volume = this.player.volume();
 
