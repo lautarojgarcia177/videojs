@@ -98,8 +98,13 @@ export class PlayerComponent implements OnInit {
   }
 
   watch() {
-    this.player.src(this.videoUrl);
     this.ended = false;
+    if (this.videoUrl.includes('https:')) {
+      this.videoUrl = this.videoUrl.substr(6);
+    } else if (this.videoUrl.includes('http:')) {
+      this.videoUrl = this.videoUrl.substr(5);
+    }
+    this.player.src(this.videoUrl);
     localStorage.setItem('videoUrl', this.videoUrl);
   }
 
