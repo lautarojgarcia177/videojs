@@ -13,7 +13,9 @@ import videojs from 'video.js';
 export class PlayerComponent implements OnInit {
 
   // videoUrl = '//vjs.zencdn.net/v/oceans.mp4';
-  videoUrl = 'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4';
+  // videoUrl = 'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4';
+  // videoUrl = 'https://www.iandevlin.com/html5test/webvtt/v/upc-tobymanley.mp4';
+  videoUrl = 'http://ptgmedia.pearsoncmg.com/imprint_downloads/peachpit/peachpit/downloads/0321793935/media//elephants-dream-medium.mp4';
 
   mymeType = 'video/mp4';
 
@@ -120,5 +122,9 @@ export class PlayerComponent implements OnInit {
 
   dashxmlSelected() {
     this.mymeType = 'application/dash+xml';
+  }
+
+  oggSelected() {
+    this.mymeType = 'video/ogg';
   }
 }
